@@ -1,0 +1,65 @@
+import os
+
+
+def logoSenai():
+    os.system("cls || clear")
+    print("=== SENAI === ")
+
+def calcular_imc(peso, altura):
+   return  peso / ( altura ** 2)
+
+def exibir (imc):
+    if imc < 18.5:
+        print("esta com baixo peso.")
+    elif  18.5 <= imc <=24.9:
+         print("Seu peso ideal.") 
+    elif 25 <= imc <= 29.9:
+         print("voce esta com sobrepeso.") 
+    elif 30 <= imc <= 34.9:
+         print("voce esta com Obesidade grau 1.") 
+    elif 35 <= imc <=39.9:
+         print("voce esta com Obesidade grau 2.") 
+    else:
+         print("grau 3 de obesidade Grave.") 
+       
+nomes = []
+sobrenome = []
+idades = []
+alturas = []
+pesos = []
+
+while True:
+    logoSenai()
+    nome = input("Digite o nome do usuário (ou digite 'sair' para encerrar): ")
+    
+    # Verificando se o usuário quer sair
+    if nome.lower() == 'sair':
+        break
+    sobrenome = input("Digite a sobrenome do usuário: ")
+    idade = int(input("Digite a idade do usuário: "))
+    altura = float(input("Digite a altura do usuário (em metros): "))
+    peso = float(input("Digite o peso do usuário (em quilogramas): "))
+
+    imc = calcular_imc (peso, altura)
+    exibindo = exibir(imc)
+    
+    # Adicionando os dados às listas
+    nomes.append(nome)
+    sobrenome.append(sobrenome)
+    idades.append(idade)
+    alturas.append(altura)
+    pesos.append(peso)
+
+# Exibindo os dados armazenados
+logoSenai()
+print("\nDados dos usuários:")
+for i in range(len(nomes)):
+    print(f"Usuário {i+1}:")
+    print("Nome Completo:", nomes[i], sobrenome[i])
+    print("Idade:", idades[i])
+    print("Altura:", alturas[i], "metros")
+    print("Peso:", pesos[i], "quilogramas")
+    imc =(calcular_imc[i],alturas[i])
+    print(f"Sua massa corporal e: {imc:.2f}")
+    print(imc)
+           
